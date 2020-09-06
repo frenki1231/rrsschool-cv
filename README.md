@@ -1,2 +1,1 @@
-# rrsschool-cv
 https://frenki1231.github.io/rrsschool-cv/
