@@ -1,0 +1,25 @@
+body{
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color: #ddd;
+}
+header{
+    margin-top: 10px;
+    max-width: 1024px;
+}
+.photo{
+    
+}
+img{
+    width:400px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5%;
+}
+
+li{
+    margin: 10px;
+}
+footer{
+    text-align: center;
+}

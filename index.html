@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Resume</title>
+ </head>
+ <body>
+    <header>
+        <section class="photo"> 
+            <img src="materials\photo.jpg" alt="Photo of Roman Buchko">
+        </section>
+    </header>
+    <main>
+        <section class="Resume">
+            <ol>
+                <li>Roman Buchko</li>
+                <li class="contact"><b>e-mail:</b> su-24@tut.by</li>
+                <li>I started studying a JavaScript six mounth ago but it was not a structured knowledge. I made 
+                    some simple games of JavaScript, but it's not real tasks. I want to understend how being true programs developer.
+                     I don't have enough practical skills, but I will be hardworkng.</li>
+                <li>I have knowledge of a basic JavaScript, basic CSS and basic HTML.</li>
+                <li>I don't have any experience.</li>
+                <li>I studed in Belarusian State University of Informatics and Radioelectronics. My 
+                    specialty is micro and nanoelectronic technologies and systems.</li>
+                <li>I'm studying Englis in scyeng now. The current course is a general intermediate.</li>
+                <li><p>Simpl game: "2048"</p><code> <pre>
+                    let center=document.createElement('div');
+                    center.className="center";
+                    document.body.append(center);
+                    let x=1;
+                    let y=1;
+                    let way="";
+                    for (let i=0; i<16; i++){
+                    let div=document.createElement('div');
+                    div.setAttribute("posX", x);
+                    div.setAttribute("posY", y);
+                    if (x==4){
+                      x=0;
+                      y++;
+                    }
+                    x++;
+                    center.append(div);
+                    }
+                    let count=0;
+                    function final(){
+                      let divs=center.getElementsByTagName('div');
+                      for (let div of divs){
+                        if (div.hasAttribute("here")){
+                          count++;
+                        }
+                        }
+                        if (count==16){
+                          alert("Game over!");
+                        } else {
+                          count=0;
+                        }
+                    }
+                    
+                    function createBlock(){
+                      let posX=Math.floor(Math.random()*4)+1;
+                      let posY=Math.floor(Math.random()*4)+1;
+                      let stop=true;
+                      final();
+                      do{
+                        if(count==16) break;
+                        let div=document.querySelector('[posX= "' + posX+ '"][posY= "' + posY+ '"]');
+                        if (div.hasAttribute("here")){
+                          posX=Math.floor(Math.random()*4)+1;
+                          posY=Math.floor(Math.random()*4)+1;
+                        } else {
+                        div.className="num2";
+                        div.setAttribute("here", 2);
+                        div.innerHTML=div.getAttribute("here");
+                        stop=false;
+                    
+                      }
+                    
+                    }while(stop);
+                    }
+                    
+                    function muve(){
+                      let divs=center.getElementsByTagName("div");
+                      let atherDivs=[];
+                      if (way=="right"||way=="down"){
+                        for (let div of divs){
+                          atherDivs.unshift(div);
+                        }
+                      }else {
+                        atherDivs=divs;
+                      }
+                      let copeDivs=[];
+                      for (let div of atherDivs){
+                        if (!div.hasAttribute("here")) continue;
+                        let posX=div.getAttribute("posX");
+                        let posY=div.getAttribute("posY");
+                        let here=div.getAttribute("here");
+                        let prefDiv;
+                        if(way=="left"){
+                          if (div.getAttribute("posX")==1) continue;
+                          prefDiv=document.querySelector('[posX= "' + (posX-1)+ '"][posY= "' + (posY)+ '"]');
+                          while(prefDiv!=null&&!prefDiv.hasAttribute("here")&&posX!=1){
+                            prefDiv.setAttribute("here", here);
+                            prefDiv.classList.add("num"+here);
+                            prefDiv.innerHTML=here;
+                            div.classList.remove("num"+here);
+                            div.removeAttribute("here");
+                            div.innerHTML="";
+                            div=prefDiv;
+                            posX--;
+                            prefDiv=document.querySelector('[posX= "' + (+posX-1)+ '"][posY= "' + (posY)+ '"]');
+                          }
+                        }else if(way=="up"){
+                          if (div.getAttribute("posY")==1) continue;
+                          prefDiv=document.querySelector('[posX= "' + (posX)+ '"][posY= "' + (posY-1)+ '"]');
+                          while(prefDiv!=null&&!prefDiv.hasAttribute("here")&&posY!=1){
+                            prefDiv.setAttribute("here", here);
+                            prefDiv.classList.add("num"+here);
+                            prefDiv.innerHTML=here;
+                            div.classList.remove("num"+here);
+                            div.removeAttribute("here");
+                            div.innerHTML="";
+                            div=prefDiv;
+                            posY--;
+                            prefDiv=document.querySelector('[posX= "' + (+posX)+ '"][posY= "' + (posY-1)+ '"]');
+                          }
+                          if (prefDiv!=null&&prefDiv.hasAttribute("here")&&prefDiv.getAttribute("here")!=here) continue;
+                          if (prefDiv!=null&&prefDiv.getAttribute("here")==here){
+                            prefDiv.classList.remove("num"+here);
+                            prefDiv.removeAttribute("here");
+                            prefDiv.setAttribute("here", 2*here);
+                            prefDiv.classList.add("num"+2*here);
+                            prefDiv.innerHTML=2*here;
+                            div.classList.remove("num"+here);
+                            div.removeAttribute("here");
+                            div.innerHTML="";
+                          }
+                        }else if(way=="down"){
+                          if (div.getAttribute("posY")==4) continue;
+                          prefDiv=document.querySelector('[posX= "' +(posX)+ '"][posY= "' + (+posY+1)+ '"]');
+                          while(prefDiv!=null&&!prefDiv.hasAttribute("here")&&posY!=4){
+                            prefDiv.setAttribute("here", here);
+                            prefDiv.classList.add("num"+here);
+                            prefDiv.innerHTML=here;
+                            div.classList.remove("num"+here);
+                            div.removeAttribute("here");
+                            div.innerHTML="";
+                            div=prefDiv;
+                            +posY++;
+                            prefDiv=document.querySelector('[posX= "' + (+posX)+ '"][posY= "' + (+posY+1)+ '"]');
+                          }
+                        }else if (way=="right"){
+                          if (div.getAttribute("posX")==4) continue;
+                          prefDiv=document.querySelector('[posX= "' +(+posX+1)+ '"][posY= "' + posY+ '"]');
+                          while(prefDiv!=null&&!prefDiv.hasAttribute("here")&&posX!=4){
+                            prefDiv.setAttribute("here", here);
+                            prefDiv.classList.add("num"+here);
+                            prefDiv.innerHTML=here;
+                            div.classList.remove("num"+here);
+                            div.removeAttribute("here");
+                            div.innerHTML="";
+                            div=prefDiv;
+                            +posX++;
+                            prefDiv=document.querySelector('[posX= "' + (+posX+1)+ '"][posY= "' + (+posY)+ '"]');
+                        }
+                        }
+                        if (prefDiv!=null&&prefDiv.hasAttribute("here")&&prefDiv.getAttribute("here")!=here) continue;
+                        if (prefDiv!=null&&prefDiv.getAttribute("here")==here){
+                          prefDiv.classList.remove("num"+here);
+                          prefDiv.removeAttribute("here");
+                          prefDiv.setAttribute("here", 2*here);
+                          prefDiv.classList.add("num"+2*here);
+                          prefDiv.innerHTML=2*here;
+                          div.classList.remove("num"+here);
+                          div.removeAttribute("here");
+                          div.innerHTML="";
+                        }
+                    }
+                     createBlock();
+                    }
+                    
+                    createBlock();
+                    window.addEventListener('keydown',function(e){
+                    if (e.key=="ArrowUp") way="up";
+                    if (e.key=="ArrowDown") way="down";
+                    if (e.key=="ArrowRight") way="right";
+                    if (e.key=="ArrowLeft") way="left";
+                    muve();
+                    })
+                </pre></code></li>
+                
+            </ol>
+        </section>
+    </main>
+    <footer>
+        <p>Made by Roman Buchko</p>
+    </footer>
+ </body>
+</html>
