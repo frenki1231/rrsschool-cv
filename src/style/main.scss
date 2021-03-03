@@ -9,6 +9,7 @@ main{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin-bottom: 30px;
 
         .wrapper-header-section{
             display: flex;
@@ -46,12 +47,55 @@ main{
         }
 
         .wrapper-main-section{
-            width: 92%;
+            width: 90%;
             align-self: flex-end;
             
             .about-me{
                 color:#0D3A80;
             }
+            .time{
+                color: #68ACD3;
+            }
+            .name{
+                color:#0D3A80;
+            }
+            .local{
+                color:#0D3A80;
+                font-weight: 700;
+            }
+            ul{
+                padding-left: 20px;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: 100px;
+
+                li{
+                    color: #68ACD3;
+                    span{
+                        color:#0D3A80;
+                    }
+                }
+            }
+
+            .hard-skills{
+                flex-direction: row;
+                height: auto;
+                padding: 0;
+                li{
+                    color: #fcfcfc;
+                    background-color: #68ACD3;
+                    list-style-type: none;
+                    padding: 5px;
+                    border-radius: 5px;
+                    margin-right: 20px;
+                    margin-bottom: 10px;
+                    &::before{
+                        content: '#';
+                    }
+                }
+            }
         }
+
     }
 }
