@@ -2,7 +2,6 @@
 @import './style/footer.scss';
 @import './style/header.scss';
 @import './style/main.scss';
-@import './style/sections.scss';
 @import './style/aside.scss';
 @import './style/font.css';
 body{
@@ -20,7 +19,7 @@ body{
 
     .wrapper-information{
         width:67%;
-        background-color: #fff;
+        background-color: #fafafa;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
