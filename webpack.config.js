@@ -65,7 +65,7 @@ module.exports = {
                 use: cssLoader('sass-loader'),
             },
             {
-                test: /\.png$|.svg$/,
+                test: /\.png$|.svg$|.esp$/,
                 use: ['file-loader'],
             },
             {

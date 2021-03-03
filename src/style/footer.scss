@@ -1,5 +1,67 @@
 footer{
-    width: 100px;
-    height: 100px;
-    background-color: green;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .wrapper-footer{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        h2{
+            text-transform: uppercase;
+            color: #fcfcfc;
+            font-weight: 400;
+            font-size: 2rem;
+        }
+        .wrapper-contact-portfolio{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            li{
+                list-style: none;
+                margin-bottom: 5px;
+                a{
+                    text-decoration: none;
+                    color: #fcfcfc;
+                    img{
+                        width: 21px;
+                        position: relative;
+                        top: 5px;
+                        margin: 0;
+                    }
+                }
+            }
+            .wrapper-portfolio{
+                width: 60%;
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    height: 85px;
+                    width: 100%;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .wrapper-rsschool-footer{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        img{
+            width: 40px;
+        }
+        .wrapper-rsschool{
+            width: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
 }

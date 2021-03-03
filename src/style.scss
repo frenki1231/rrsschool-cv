@@ -7,6 +7,9 @@
 body{
     font-family: 'Montserrat';
     background-color: #68ACD3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wrapper{
