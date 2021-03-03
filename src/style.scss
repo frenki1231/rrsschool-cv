@@ -1,4 +1,29 @@
 @import 'normalize.css';
 @import './style/footer.scss';
 @import './style/header.scss';
+@import './style/main.scss';
+@import './style/sections.scss';
+@import './style/aside.scss';
+@import './style/font.css';
+body{
+    font-family: 'Montserrat';
+    background-color: #68ACD3;
+}
 
+.wrapper{
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+    .wrapper-information{
+        width:67%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

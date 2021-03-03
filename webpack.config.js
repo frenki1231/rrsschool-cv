@@ -3,7 +3,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { plugins } = require('../wildlife/webpack.config');
+
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -65,9 +65,13 @@ module.exports = {
                 use: cssLoader('sass-loader'),
             },
             {
-                test: /\.png$/,
+                test: /\.png$|.svg$/,
                 use: ['file-loader'],
-            }
+            },
+            {
+                test: /\.ttf$/,
+                use: ['file-loader'],
+            },
         ]
     }
 }
