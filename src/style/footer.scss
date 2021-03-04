@@ -24,14 +24,20 @@ footer{
             li{
                 list-style: none;
                 margin-bottom: 5px;
+                width: 160px;
                 a{
                     text-decoration: none;
                     color: #fcfcfc;
+                    width: 100px;
                     img{
                         width: 21px;
                         position: relative;
                         top: 5px;
                         margin: 0;
+                    }
+                    &:hover{
+                        position: relative;
+                        font-weight: 700;
                     }
                 }
             }

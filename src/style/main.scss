@@ -16,8 +16,12 @@ main{
             justify-content: space-between;
             width: 100%;
             align-items: center;
-            height: 45px;
+            height: 47px;
             margin-bottom: 15px;
+            background-color: #fcfcfc;
+            transition: background-color 1s;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
 
             h2{
                 width: 85%;
@@ -37,12 +41,21 @@ main{
                 border: 1px #68ACD3 solid;
                 border-radius: 50%;
                 position: relative;
-                width: 44px;
-                height: 44px;
+                width: 45px;
+                height: 45px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 left: -24px;
+                transition: color 1s, background-color 1s;
+            }
+
+            &:hover{
+                background-color: #68ACD3;
+                p{
+                    color: #fcfcfc;
+                    background-color: #68ACD3;
+                }
             }
         }
         
