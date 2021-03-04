@@ -1,0 +1,114 @@
+main{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: column;
+    border-left: 1px #68ACD3 solid;
+
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        .wrapper-header-section{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            height: 47px;
+            margin-bottom: 15px;
+            background-color: #fcfcfc;
+            transition: background-color 1s;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            h2{
+                width: 85%;
+                text-transform: uppercase;
+                color:#fcfcfc;
+                background-color: #68ACD3;
+                font-weight: 400;
+                font-size: 1.5rem;
+                padding: 10px 25px;
+                border-radius: 10px;
+            }
+
+            p{
+                color: #68ACD3;
+                background-color: #fcfcfc;
+                font-size: 1.5rem;
+                border: 1px #68ACD3 solid;
+                border-radius: 50%;
+                position: relative;
+                width: 45px;
+                height: 45px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                left: -24px;
+                transition: color 1s, background-color 1s;
+            }
+
+            &:hover{
+                background-color: #68ACD3;
+                p{
+                    color: #fcfcfc;
+                    background-color: #68ACD3;
+                }
+            }
+        }
+        
+        .wrapper-main-section{
+            width: 90%;
+            align-self: flex-end;
+            
+            .about-me{
+                color:#0D3A80;
+            }
+            .time{
+                color: #68ACD3;
+            }
+            .name{
+                color:#0D3A80;
+            }
+            .local{
+                color:#0D3A80;
+                font-weight: 700;
+            }
+            ul{
+                padding-left: 20px;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: 100px;
+
+                li{
+                    color: #68ACD3;
+                    span{
+                        color:#0D3A80;
+                    }
+                }
+            }
+
+            .hard-skills{
+                flex-direction: row;
+                height: auto;
+                padding: 0;
+                li{
+                    color: #fcfcfc;
+                    background-color: #68ACD3;
+                    list-style-type: none;
+                    padding: 5px;
+                    border-radius: 5px;
+                    margin-right: 20px;
+                    margin-bottom: 10px;
+                    &::before{
+                        content: '#';
+                    }
+                }
+            }
+        }
+
+    }
+}
