@@ -6,7 +6,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
 
 const cssLoader = (extra)=>{
     const loaders = [
@@ -24,6 +23,30 @@ const cssLoader = (extra)=>{
     return loaders;
 }
 
+const plugins = () => {
+    const plugin = [
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({filename: 'style.css'}),
+        new HTMLWebpackPlugin({
+            filename: 'index.html',
+            template: './index.html'
+        })
+    ];
+    if (isDev){
+        plugin.push(
+            new CopyWebpackPlugin({
+                patterns: [
+                    {
+                        from: path.resolve(__dirname, 'src/assets'),
+                        to: path.resolve(__dirname, 'build/assets'),
+                    }
+                ]
+            })
+        )
+    }
+    return plugin;
+}
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: {
@@ -38,22 +61,7 @@ module.exports = {
         compress: true,
         hot: isDev,
     },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({filename: 'style.css'}),
-        new HTMLWebpackPlugin({
-            filename: 'index.html',
-            template: './index.html'
-        }),
-        new CopyWebpackPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, 'src/assets'),
-                    to: path.resolve(__dirname, 'build/assets'),
-                }
-            ]
-        })
-    ],
+    plugins: plugins(),
     module:{
         rules: [
             {
