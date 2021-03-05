@@ -30,20 +30,16 @@ const plugins = () => {
         new HTMLWebpackPlugin({
             filename: 'index.html',
             template: './index.html'
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/assets'),
+                    to: path.resolve(__dirname, 'build/assets'),
+                }
+            ]
         })
     ];
-    if (isDev){
-        plugin.push(
-            new CopyWebpackPlugin({
-                patterns: [
-                    {
-                        from: path.resolve(__dirname, 'src/assets'),
-                        to: path.resolve(__dirname, 'build/assets'),
-                    }
-                ]
-            })
-        )
-    }
     return plugin;
 }
 
