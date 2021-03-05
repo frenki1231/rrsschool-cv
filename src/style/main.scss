@@ -49,14 +49,6 @@ main{
                 left: -24px;
                 transition: color 1s, background-color 1s;
             }
-
-            &:hover{
-                background-color: #68ACD3;
-                p{
-                    color: #fcfcfc;
-                    background-color: #68ACD3;
-                }
-            }
         }
         
         .wrapper-main-section{
@@ -75,6 +67,7 @@ main{
             .local{
                 color:#0D3A80;
                 font-weight: 700;
+                text-decoration: none;
             }
             ul{
                 padding-left: 20px;
@@ -110,5 +103,14 @@ main{
             }
         }
 
+        &:hover{
+            .wrapper-header-section{
+                background-color: #68ACD3;
+                p{
+                    color: #fcfcfc;
+                    background-color: #68ACD3;
+                }
+            }
+        }
     }
 }

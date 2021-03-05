@@ -6,7 +6,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
 
 const cssLoader = (extra)=>{
     const loaders = [
@@ -24,21 +23,8 @@ const cssLoader = (extra)=>{
     return loaders;
 }
 
-module.exports = {
-    context: path.resolve(__dirname, 'src'),
-    entry: {
-        main: ['./style.scss'],
-    },
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'build'),
-    },
-    devServer: {
-        port: 3333,
-        compress: true,
-        hot: isDev,
-    },
-    plugins: [
+const plugins = () => {
+    const plugin = [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({filename: 'style.css'}),
         new HTMLWebpackPlugin({
@@ -53,7 +39,25 @@ module.exports = {
                 }
             ]
         })
-    ],
+    ];
+    return plugin;
+}
+
+module.exports = {
+    context: path.resolve(__dirname, 'src'),
+    entry: {
+        main: ['./style.scss'],
+    },
+    output: {
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'build'),
+    },
+    devServer: {
+        port: 3333,
+        compress: true,
+        hot: isDev,
+    },
+    plugins: plugins(),
     module:{
         rules: [
             {
